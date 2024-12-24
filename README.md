@@ -1,6 +1,16 @@
-## Typescript / Express / Node / Sqlite
+## Typescript - Express - Node - Starter
 
 _Setup your node backend fast_
+
+### Features: 
+- Typescript
+- Express
+- Enviroment variables validation
+- Formatting with Prettier
+- Schema validator with Zod
+- JWT creation and validation
+- Sqlite
+- Date formatting
 
 ### Principal Scripts
 
@@ -24,6 +34,6 @@ _Setup your node backend fast_
   npm run build
 ```
 
-##### Recomendations
+### Recomendations
 
 If you want to use modern javascript frameworks that are far from ***express***, check this out [Hono](https://github.com/honojs/hono) or [Fastify](https://github.com/fastify/fastify)
