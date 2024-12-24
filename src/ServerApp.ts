@@ -7,30 +7,30 @@ import morgan from "morgan";
 import { GlobalRouter } from "./GlobalRouter";
 
 // --------- SETUP APP -------------
-export const ServerApp: Application = express();
+export const server_app: Application = express();
 
 // ---------- APP SETTINGS ------------
-ServerApp.disable("x-powered-by");
+server_app.disable("x-powered-by");
 
 // ---------- MIDDLEWARES ---------
-ServerApp.use(compression());
-ServerApp.use(helmet());
-ServerApp.use(cors());
-ServerApp.use(bodyParser.urlencoded({ extended: false }));
-ServerApp.use(bodyParser.json());
-ServerApp.use(bodyParser.text());
-ServerApp.use(bodyParser.raw());
-process.env.NODE_ENV !== "production" && ServerApp.use(morgan("dev"));
+server_app.use(compression());
+server_app.use(helmet());
+server_app.use(cors());
+server_app.use(bodyParser.urlencoded({ extended: false }));
+server_app.use(bodyParser.json());
+server_app.use(bodyParser.text());
+server_app.use(bodyParser.raw());
+process.env.NODE_ENV !== "production" && server_app.use(morgan("dev"));
 
 // ---------- ROUTER ---------
-ServerApp.use(GlobalRouter);
+server_app.use(GlobalRouter);
 
 // ---------- HANDLING ERROR ---------
-ServerApp.once("error", (error) => {
+server_app.once("error", (error) => {
   console.error({ error });
   process.exit(1);
 });
 
-ServerApp.on("uncaughtException", (error) => {
+server_app.on("uncaughtException", (error) => {
   console.error({ uncaughtException: error });
 });

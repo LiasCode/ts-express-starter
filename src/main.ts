@@ -1,10 +1,10 @@
 import http from "node:http";
-import { ServerApp } from "./ServerApp";
+import { server_app } from "./ServerApp";
 import "./EnvParser";
 import { sqliteClient } from "./database/sqlite";
 
 // ----------- INIT SERVER ---------
-http.createServer(ServerApp).listen(process.env.PORT, () => {
+http.createServer(server_app).listen(process.env.PORT, () => {
   console.log("Server listen on PORT: " + process.env.PORT);
 });
 
