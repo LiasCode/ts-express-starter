@@ -3,12 +3,12 @@ import express from "express";
 import { HealthRouter } from "./router/HealthRouter";
 
 // ------------- ROUTER ------------
-export const GlobalRouter = Router();
+export const global_router = Router();
 
-GlobalRouter.use("/api", HealthRouter);
+global_router.use("/api", HealthRouter);
 
-GlobalRouter.use(express.static(process.cwd() + "/public"));
+global_router.use(express.static(process.cwd() + "/public"));
 
-GlobalRouter.get("*", (_, res) => {
+global_router.get("*", (_, res) => {
   return res.sendFile(process.cwd() + "/public/404.html");
 });

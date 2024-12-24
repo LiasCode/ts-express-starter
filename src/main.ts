@@ -1,6 +1,6 @@
 import http from "node:http";
-import { server_app } from "./ServerApp";
-import "./EnvParser";
+import { server_app } from "./server";
+import "./env";
 import { sqliteClient } from "./database/sqlite";
 
 // ----------- INIT SERVER ---------
