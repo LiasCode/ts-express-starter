@@ -15,14 +15,12 @@ ServerApp.disable("x-powered-by");
 // ---------- MIDDLEWARES ---------
 ServerApp.use(compression());
 ServerApp.use(helmet());
-if (process.env.NODE_ENV !== "production") {
-  ServerApp.use(morgan("dev"));
-}
 ServerApp.use(cors());
 ServerApp.use(bodyParser.urlencoded({ extended: false }));
 ServerApp.use(bodyParser.json());
 ServerApp.use(bodyParser.text());
 ServerApp.use(bodyParser.raw());
+process.env.NODE_ENV !== "production" && ServerApp.use(morgan("dev"));
 
 // ---------- ROUTER ---------
 ServerApp.use(GlobalRouter);
