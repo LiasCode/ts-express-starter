@@ -46,7 +46,6 @@
     "@types/jsonwebtoken": "9.0.6",
     "@types/morgan": "1.9.9",
     "@types/node": "20.12.7",
-    "@types/pg": "8.11.5",
     "@types/uuid": "9.0.8",
     "prettier": "3.2.5",
     "tsx": "^4.19.2",
