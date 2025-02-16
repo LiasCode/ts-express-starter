@@ -1,11 +1,8 @@
 import jwt from "jsonwebtoken";
 
-export async function createJWTToken(payload: any, secret: string, expiresTime: string): Promise<string | null> {
+export async function createJWTToken(payload: any, secret: string, expiresTime: number): Promise<string | null> {
   try {
-    return jwt.sign(payload, secret, {
-      algorithm: "HS512",
-      expiresIn: expiresTime,
-    });
+    return jwt.sign(payload, secret, { expiresIn: expiresTime });
   } catch (error: any) {
     return null;
   }

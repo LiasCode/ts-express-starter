@@ -1,7 +1,7 @@
 import http from "node:http";
-import { server_app } from "./server";
-import "./env";
 import { sqliteClient } from "./database/sqlite";
+import "./env";
+import { server_app } from "./server";
 
 // ----------- INIT SERVER ---------
 http.createServer(server_app).listen(process.env.PORT, () => {

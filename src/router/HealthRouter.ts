@@ -4,5 +4,5 @@ import Router from "express-promise-router";
 export const HealthRouter = Router();
 
 HealthRouter.get("/ping", async (_, res) => {
-  return res.send("pong");
+  return res.send(JSON.stringify("pong"));
 });
