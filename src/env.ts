@@ -10,11 +10,11 @@ const envSchema = z.object({
 const res = envSchema.safeParse(process.env);
 
 if (!res.success) {
-  throw new Error(`Env schema validation fails \n${res.error}`);
+  throw new Error(`Env schema validation fails \n${res.error}, Create a valid \`.env\` file`);
 }
 
 declare global {
   namespace NodeJS {
-    interface ProcessEnv extends z.infer<typeof envSchema> {}
+    interface ProcessEnv extends z.infer<typeof envSchema> { }
   }
 }

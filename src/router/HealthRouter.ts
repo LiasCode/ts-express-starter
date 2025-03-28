@@ -1,4 +1,4 @@
-import Router from "express-promise-router";
+import { Router } from "express";
 
 // ------------- ROUTER ------------
 export const HealthRouter = Router();
