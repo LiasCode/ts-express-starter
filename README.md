@@ -11,6 +11,7 @@ _Setup your node backend fast_
 - JWT creation and validation
 - Sqlite
 - Date formatting
+- Simple Git Hooks
 
 ### Principal Scripts
 
