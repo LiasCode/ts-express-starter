@@ -8,6 +8,6 @@ global_router.use("/api", HealthRouter);
 
 global_router.use(express.static(process.cwd() + "/public"));
 
-global_router.get("*\"rest\"", (_, res) => {
+global_router.get('*"rest"', (_, res) => {
   return res.sendFile(process.cwd() + "/public/404.html");
 });
