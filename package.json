@@ -1,8 +1,9 @@
 {
-  "name": "template-node-typescript-express",
-  "version": "1.0.0",
-  "description": "Starter template for use typescript and express in node",
+  "name": "ts-express-starter",
+  "version": "0.0.1",
+  "description": "Clean and simple starter for Typescript, Express, and Sqlite on node",
   "main": "./dist/main.js",
+  "license": "MIT",
   "scripts": {
     "start": "NODE_ENV=production node ./dist/main.js",
     "build": "tsc -p ./tsconfig.json",
@@ -12,14 +13,21 @@
     "check": "tsc --noEmit -p ./tsconfig.json"
   },
   "keywords": [
-    "node",
     "typescript",
-    "template",
     "express",
-    "nodejs",
-    "sqlite"
+    "sqlite",
+    "starter",
+    "node",
+    "zod",
+    "rest",
+    "api",
+    "template"
   ],
-  "author": "LiasCode",
+  "author": {
+    "name": "LiasCode",
+    "email": "liascode.dev@gmail.com",
+    "url": "https://lias-code.pages.dev"
+  },
   "dependencies": {
     "@libsql/client": "^0.14.0",
     "bcrypt": "^5.1.1",
