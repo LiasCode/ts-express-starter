@@ -1,20 +1,19 @@
+import consola from "consola";
 import dotenv from "dotenv";
 import { z } from "zod";
 
 dotenv.config();
 
-const envSchema = z.object({
+const env_schema = z.object({
   PORT: z.string(),
+  NODE_ENV: z.enum(["development", "production"]).default("development"),
 });
 
-const res = envSchema.safeParse(process.env);
+const res = env_schema.safeParse(process.env);
 
 if (!res.success) {
-  throw new Error(`Env schema validation fails \n${res.error}, Create a valid \`.env\` file`);
+  consola.error(`Env schema validation fails \n${res.error}\nCreate a valid \`.env\` file`);
+  process.exit(1);
 }
 
-declare global {
-  namespace NodeJS {
-    interface ProcessEnv extends z.infer<typeof envSchema> {}
-  }
-}
+export const ENV = Object.freeze(res.data);

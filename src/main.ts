@@ -1,15 +1,15 @@
+import consola from "consola";
 import http from "node:http";
-import { sqlite_client } from "./database/sqlite";
-import "./env";
+import { print_sqlite_client_status } from "./database/sqlite";
+import { ENV } from "./env";
 import { server_app } from "./server";
 
 // ----------- INIT SERVER ---------
-http.createServer(server_app).listen(process.env.PORT, () => {
-  console.log("👂 Server listen on PORT: " + process.env.PORT);
+http.createServer(server_app).listen(ENV.PORT, () => {
+  print_sqlite_client_status();
+  consola.success(`Server listen on PORT: ${ENV.PORT}`);
 });
 
 process.on("uncaughtException", (error) => {
-  console.error(`Uncaught Exception : ${error.message}`);
+  consola.error(`Uncaught Exception : ${error.message}`);
 });
-
-console.log("🤝 Database Sqlite connected:", !sqlite_client.closed);

@@ -1,9 +1,11 @@
 import bodyParser from "body-parser";
 import compression from "compression";
+import consola from "consola";
 import cors from "cors";
 import express, { Application } from "express";
 import helmet from "helmet";
 import morgan from "morgan";
+import { ENV } from "./env";
 import { global_router } from "./router";
 
 // --------- SETUP APP -------------
@@ -20,17 +22,15 @@ server_app.use(bodyParser.urlencoded({ extended: false }));
 server_app.use(bodyParser.json());
 server_app.use(bodyParser.text());
 server_app.use(bodyParser.raw());
-process.env.NODE_ENV !== "production" && server_app.use(morgan("dev"));
+
+if (ENV.NODE_ENV !== "production") {
+  server_app.use(morgan("dev"));
+}
 
 // ---------- ROUTER ---------
 server_app.use(global_router);
 
 // ---------- HANDLING ERROR ---------
-server_app.once("error", (error) => {
-  console.error({ error });
-  process.exit(1);
-});
-
-server_app.on("uncaughtException", (error) => {
-  console.error({ uncaughtException: error });
+server_app.on("error", (error) => {
+  consola.error("[SERVER APP]", error);
 });
