@@ -7,7 +7,7 @@ import { server_app } from "./server";
 // ----------- INIT SERVER ---------
 http.createServer(server_app).listen(ENV.PORT, () => {
   print_sqlite_client_status();
-  consola.success(`Server listen on PORT: ${ENV.PORT}`);
+  consola.success(`Server listen on port :${ENV.PORT}`);
 });
 
 process.on("uncaughtException", (error) => {
