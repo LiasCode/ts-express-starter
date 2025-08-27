@@ -7,6 +7,7 @@ dotenv.config();
 const env_schema = z.object({
   PORT: z.string(),
   NODE_ENV: z.enum(["development", "production"]).default("development"),
+  OPENAI_API_KEY: z.string(),
 });
 
 const res = env_schema.safeParse(process.env);
